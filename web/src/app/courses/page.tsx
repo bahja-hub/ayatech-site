@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ChevronRight, Clock, Filter } from "lucide-react";
 
@@ -54,6 +54,7 @@ const levelColors: Record<string, { text: string; bg: string; border: string }> 
 const cats = ["All", "AI", "Coding", "Design", "Hardware"];
 
 export default function CoursesPage() {
+    const [allCourses, setAllCourses] = useState<any[]>([]);
     const [active, setActive] = useState("All");
     const filtered = active === "All" ? allCourses : allCourses.filter(c => c.cat === active);
 
